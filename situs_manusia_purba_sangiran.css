@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --primary-color: #6D4C41; /* Cokelat Tanah */
+    --accent-color: #7CB342; /* Hijau Alam */
+    --text-color: #333;
+    --bg-color: #FBFBFB;
+    --card-bg: #FFFFFF;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+}
+
+/* Judul Utama */
+h1 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 3em;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.intro {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Gambar */
+.image-wrapper {
+    text-align: center; 
+    margin: 20px 0 35px 0;
+}
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Header Bagian */
+h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Daftar Info Umum */
+.general-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.general-info ul li {
+    background-color: #FBEFE7; /* Krem Muda */
+    margin-bottom: 8px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
+    font-size: 0.95em;
+}
+
+.general-info ul li strong {
+    color: var(--primary-color);
+}
+
+/* Keterangan Museum */
+.museum-note {
+    background-color: #E8F5E9; /* Hijau Muda */
+    border: 1px solid var(--accent-color);
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 6px;
+    font-style: italic;
+    color: #388E3C;
+}
+
+/* === Accordion (Signifikansi) Styling === */
+
+.zone-accordion {
+    margin-bottom: 8px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.zone-header {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    padding: 15px 20px;
+    font-size: 1.05em;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.zone-header:hover {
+    background-color: #5D4037; 
+}
+
+.zone-header.active {
+    background-color: #4E342E; /* Cokelat Gelap */
+}
+
+.arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s;
+    font-weight: 900;
+}
+
+.zone-header.active .arrow {
+    transform: rotate(180deg);
+}
+
+.zone-content {
+    padding: 0 20px;
+    background-color: var(--card-bg);
+    max-height: 0; 
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.zone-content p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.zone-content.active {
+    max-height: 500px; 
+    padding: 15px 20px;
+}

@@ -1,0 +1,194 @@
+/* Import Font dari Google */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset dan Variabel Dasar */
+:root {
+    --color-primary: #1e3a8a; /* Biru Navy Tua (Teknologi) */
+    --color-secondary: #fcd34d; /* Kuning/Oranye Cerah (Aksen) */
+    --color-dark: #1f2937; /* Teks Gelap */
+    --color-light: #f9fafb; /* Latar Belakang Body */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6; 
+    background-color: var(--color-light); 
+    color: var(--color-dark); 
+    min-height: 100vh;
+}
+
+/* Tautan */
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-secondary); 
+}
+
+/* HEADER - Menggunakan GAMBAR sebagai latar belakang */
+header {
+    /* URL Gambar Profil Habibie */
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE9QiBwcIjcpW9rrvP0oEt4GIsfpTaKI5erw&s'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    
+    color: white; 
+    padding: 80px 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay Gelap untuk Keterbacaan Teks Header */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay hitam 60% transparan */
+    z-index: -1;
+}
+
+header h1, header p {
+    position: relative; 
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: 'Roboto Mono', monospace; /* Font coding untuk kesan teknologi */
+}
+
+header p {
+    font-style: italic;
+    color: var(--color-secondary);
+    font-size: 1.1em;
+}
+
+/* Konten Utama */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Section */
+section {
+    margin-bottom: 50px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Card Biografi dengan Animasi Scroll */
+.card {
+    border-left: 6px solid var(--color-primary);
+    background: #fdfdfd;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Kontribusi Grid */
+.kontribusi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.kontribusi-item {
+    background: var(--color-light);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border-bottom: 5px solid var(--color-secondary);
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+.kontribusi-item h4 {
+    color: var(--color-dark);
+    margin-top: 0;
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    margin-top: 50px;
+}
+
+/* Tombol Kembali ke Atas */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#backToTopBtn:hover {
+    background-color: #0c1a4b;
+}
+
+/* CSS untuk Animasi Scroll Reveal */
+.reveal {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garis Waktu Sejarah Indonesia Interaktif</title>
+    <link rel="stylesheet" href="timeline.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Sejarah Nusantara</div>
+        <nav>
+            <a href="#timeline">Garis Waktu</a>
+            <a href="#filter-container" id="open-filter">Filter 🔎</a>
+            <a href="#about">Tentang</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Jelajahi Kronologi Sejarah Indonesia</h1>
+            <p>Telusuri peristiwa penting dari masa kerajaan hingga reformasi dengan garis waktu interaktif.</p>
+        </section>
+
+        <div id="filter-container" class="filter-controls">
+            <input type="text" id="search-box" placeholder="Cari peristiwa..." onkeyup="filterTimeline()">
+            <select id="era-filter" onchange="filterTimeline()">
+                <option value="all">Semua Masa</option>
+                <option value="kerajaan">Masa Kerajaan</option>
+                <option value="penjajahan">Masa Penjajahan</option>
+                <option value="kemerdekaan">Masa Kemerdekaan</option>
+                <option value="orde">Orde Lama/Baru</option>
+            </select>
+        </div>
+
+        <section id="timeline" class="timeline-section">
+            <h2 class="section-title">Garis Waktu Utama</h2>
+            
+            <div id="timeline-container" class="timeline-grid">
+                </div>
+        </section>
+
+        <div id="event-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3 id="modal-title"></h3>
+                <p class="modal-date" id="modal-date"></p>
+                <p id="modal-description"></p>
+                <div class="modal-tags" id="modal-tags"></div>
+             
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Garis Waktu Interaktif. Data sejarah bersumber dari referensi publik.</p>
+    </footer>
+
+    <script src="timeline.js"></script>
+</body>
+</html>

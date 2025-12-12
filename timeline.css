@@ -1,0 +1,384 @@
+/* RESET dan FONT */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-light: #f4f7f6;
+    --text-dark: #333;
+    --timeline-line: #dee2e6;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    
+    /* === FITUR: BACKGROUND GAMBAR === */
+    background-image: url('https://wallpapers.com/images/hd/historical-background-2560-x-1600-q8k2ub17sd2sxqu3.jpg'); /* Ganti dengan path gambar Anda */
+    background-size: cover; /* Memastikan gambar menutupi seluruh area */
+    background-attachment: fixed; /* Membuat gambar tetap (tidak ikut scroll) */
+    background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+    background-color: var(--background-light); /* Warna fallback/dasar */
+    /* ================================== */
+    
+    transition: background-color 0.3s ease;
+}
+
+/* HEADER/NAVBAR */
+/* Dibuat semi-transparan agar konten terlihat jelas di atas background gambar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.navbar a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+/* HERO SECTION */
+/* Diberi transparansi agar background gambar tetap terlihat samar di belakangnya */
+.hero {
+    background: linear-gradient(135deg, #007bffcc, #0056b3cc); /* cc = 80% opacity */
+    color: white;
+    padding: 80px 5%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero p {
+    opacity: 0.9;
+}
+
+/* CONTAINER DAN JUDUL */
+.container {
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* FILTER CONTROLS (FITUR PENCARIAN & FILTER) */
+.filter-controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparan */
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+
+#search-box, #era-filter {
+    padding: 10px 15px;
+    border: 2px solid var(--timeline-line);
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 300px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search-box:focus, #era-filter:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* GARIS WAKTU UTAMA (CSS Grid) */
+.timeline-grid {
+    display: grid;
+    /* Membuat layout 2 kolom di layar besar */
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px; /* Jarak antar card */
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Garis tengah vertikal */
+.timeline-grid::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--timeline-line);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+/* Kartu peristiwa dibuat semi-transparan */
+.timeline-event {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* FITUR: Hover interaktif */
+}
+
+.timeline-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling untuk event di kolom KIRI */
+.timeline-grid > div:nth-child(odd) {
+    grid-column: 1 / 2;
+    text-align: right;
+    padding-right: 40px; /* Ruang untuk titik */
+}
+
+/* Styling untuk event di kolom KANAN */
+.timeline-grid > div:nth-child(even) {
+    grid-column: 2 / 3;
+    text-align: left;
+    padding-left: 40px; /* Ruang untuk titik */
+}
+
+/* Titik dan Konektor pada Garis */
+.timeline-event::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border: 4px solid var(--background-light);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/* Posisi titik di kiri */
+.timeline-grid > div:nth-child(odd)::after {
+    right: -10px;
+}
+
+/* Posisi titik di kanan */
+.timeline-grid > div:nth-child(even)::after {
+    left: -10px;
+}
+
+.event-date {
+    font-size: 0.9em;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.event-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.event-summary {
+    font-size: 0.95em;
+    color: var(--secondary-color);
+}
+
+/* TAGS (FITUR VISUAL) */
+.event-tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: white;
+    background-color: var(--secondary-color);
+}
+
+.tag.era-kerajaan { background-color: #4CAF50; }
+.tag.era-penjajahan { background-color: #f44336; }
+.tag.era-kemerdekaan { background-color: #00bcd4; }
+.tag.era-orde { background-color: #ff9800; }
+
+
+/* MODAL (FITUR DETAIL) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Overlay gelap */
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.98); /* Sangat solid agar detail terbaca jelas */
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-title {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.8em;
+}
+
+.modal-date {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--timeline-line);
+    padding-bottom: 10px;
+}
+
+.action-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.9); /* Semi-transparan */
+    color: white;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE DESIGN (Smartphone View) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar nav {
+        margin-top: 10px;
+    }
+    
+    .navbar a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Mengubah Grid menjadi 1 kolom */
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Menghilangkan garis tengah dan mengatur ulang posisi titik */
+    .timeline-grid::after {
+        left: 20px; /* Geser garis ke kiri */
+    }
+
+    .timeline-event,
+    .timeline-grid > div:nth-child(odd),
+    .timeline-grid > div:nth-child(even) {
+        grid-column: 1 / 2;
+        text-align: left;
+        padding-left: 50px; /* Ruang untuk titik baru */
+        padding-right: 15px;
+    }
+
+    /* Memindahkan titik event ke kiri */
+    .timeline-event::after,
+    .timeline-grid > div:nth-child(odd)::after,
+    .timeline-grid > div:nth-child(even)::after {
+        left: 10px;
+        right: auto;
+    }
+}

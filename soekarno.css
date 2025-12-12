@@ -1,0 +1,224 @@
+/* Import Font dari Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset dan Variabel Dasar */
+:root {
+    --color-primary: #e30b15; /* Merah Bendera */
+    --color-secondary: #ffffff; /* Putih */
+    --color-dark: #2c3e50; /* Abu gelap untuk teks */
+    --color-light: #f4f4f9; /* Latar belakang utama (Body) */
+}
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Pengaturan Body (Kembali ke warna lembut) */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6; 
+    background-color: var(--color-light); /* Menggunakan warna dasar lembut */
+    color: var(--color-dark); 
+    min-height: 100vh;
+}
+
+/* Tautan */
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #a7000d; /* Merah yang sedikit lebih gelap */
+}
+
+/* HEADER - Menggunakan GAMBAR sebagai latar belakang */
+header {
+    /* GANTI URL INI DENGAN TAUTAN FOTO YANG ANDA INGINKAN */
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKyxbczbmYxa54CHPZD5MScErPNikeokY_lw&s'); 
+    background-size: cover; 
+    background-position: center center; /* Fokuskan bagian tengah gambar */
+    background-repeat: no-repeat;
+    
+    color: var(--color-secondary); /* Teks tetap putih */
+    padding: 80px 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    
+    /* Overlay untuk Keterbacaan Teks Header */
+    position: relative;
+    z-index: 1;
+}
+
+/* Tambahkan overlay gelap semi-transparan di atas gambar header */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam 50% transparan */
+    z-index: -1;
+}
+
+header h1, header p {
+    position: relative; /* Pastikan teks di atas overlay */
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Konten Utama */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Section - Latar belakang putih solid agar kontras dengan body yang berwarna lembut */
+section {
+    margin-bottom: 50px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: var(--color-secondary); /* Putih Solid */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Card Biografi dengan Hover Effect dan Animasi */
+.card {
+    background: var(--color-light);
+    border-left: 6px solid var(--color-primary);
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--color-dark);
+    margin-top: 0;
+    font-weight: 600;
+}
+
+/* Gambar Biografi */
+.biografi-image {
+    width: 100%;
+    max-width: 300px;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+/* Kontribusi Utama (Grid Responsive) */
+.kontribusi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.kontribusi-item {
+    background: var(--color-light);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 0; 
+    transform: translateY(20px);
+}
+
+.kontribusi-item:nth-child(even) {
+    background-color: #ffeaea; /* Merah muda lembut */
+}
+
+.kontribusi-item:hover {
+    background: #ffeded;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kontribusi-item h4 {
+    color: var(--color-primary);
+    margin-top: 0;
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--color-dark);
+    color: var(--color-secondary);
+    margin-top: 50px;
+}
+
+/* Tombol Kembali ke Atas */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#backToTopBtn:hover {
+    background-color: #a7000d;
+}
+
+/* CSS untuk Animasi Scroll Reveal */
+.reveal {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

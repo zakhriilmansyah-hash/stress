@@ -1,0 +1,159 @@
+/* Tambahan CSS untuk Gambar */
+
+.image-wrapper {
+    text-align: center; /* Memastikan gambar berada di tengah */
+    margin: 20px 0 30px 0;
+}
+
+.main-image {
+    max-width: 100%; /* Memastikan gambar responsif terhadap lebar container */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Memberi kedalaman visual */
+    display: block; /* Agar dapat menggunakan margin auto jika diperlukan */
+    margin-left: auto;
+    margin-right: auto;
+}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #6A1B9A; /* Ungu */
+    --accent-color: #FFB300; /* Emas */
+    --text-color: #333;
+    --bg-color: #F8F9FA;
+    --card-bg: #FFFFFF;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+}
+
+/* Judul Utama */
+h1 {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.intro {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #EEE;
+}
+
+/* Header Bagian */
+h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.4em;
+    color: #444;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Daftar (Sejarah Singkat) */
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+ul li {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-color);
+}
+
+ul li strong {
+    color: var(--primary-color);
+}
+
+/* === Accordion (Zona Dhatu) Styling === */
+
+.zone-accordion {
+    margin-bottom: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.zone-accordion:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.zone-header {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    padding: 15px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.zone-header:hover {
+    background-color: #5E1584; 
+}
+
+.zone-header.active {
+    background-color: #3E1054; /* Lebih gelap saat aktif */
+}
+
+.arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s;
+    font-weight: 900;
+}
+
+.zone-header.active .arrow {
+    transform: rotate(180deg);
+}
+
+.zone-content {
+    padding: 0 20px;
+    background-color: var(--card-bg);
+    max-height: 0; 
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.zone-content p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.zone-content.active {
+    max-height: 500px; 
+    padding: 15px 20px;
+}

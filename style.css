@@ -1,0 +1,210 @@
+/* --- 1. Pengaturan Dasar (Reset dan Font) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif; /* Font yang terasa klasik dan historis */
+    line-height: 1.6;
+    color: #333; /* Warna teks utama */
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* --- 2. Header dan Navigasi --- */
+header {
+    background: #5D4037; /* Warna cokelat tua, nuansa kuno */
+    color: #ffffff;
+    padding: 1rem 0;
+    border-bottom: 3px solid #FFC107; /* Garis emas sebagai aksen */
+}
+
+header h1 {
+    float: left;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header nav {
+    float: right;
+    margin-top: 5px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding-bottom: 3px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+header a:hover {
+    color: #FFC107;
+    border-bottom: 2px solid #FFC107;
+}
+
+/* --- 3. Bagian Utama (Main) --- */
+main {
+    padding-bottom: 40px;
+}
+
+.content-section {
+    padding: 60px 0;
+}
+
+.grey-bg {
+    background-color: #ededed;
+}
+
+/* --- 4. Hero Section (Halaman Depan) --- */
+#hero {
+    background: url('images/hero-background.jpg') no-repeat center center/cover; /* Ganti dengan gambar sejarah daerah Anda */
+    color: #fff;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* Efek overlay gelap agar teks terlihat */
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+#hero h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #FFC107;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #FFA000;
+}
+
+/* --- 5. Card Grid (Pengenalan) --- */
+.card-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h4 {
+    color: #5D4037;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* --- 6. Post Preview (Terbaru) --- */
+.post-preview {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-left: 5px solid #5D4037;
+    border-radius: 5px;
+}
+
+.post-preview h4 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.post-preview a {
+    color: #f24a16;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- 7. Footer --- */
+footer {
+    background: #333;
+    color: #d23d3d;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #FFC107;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- 8. Responsif Dasar (Untuk Layar Kecil) --- */
+@media (max-width: 768px) {
+    header h1,
+    header nav {
+        float: none;
+        text-align: center;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .card-grid {
+        flex-direction: column;
+    }
+
+    #hero h2 {
+        font-size: 2rem;
+    }
+}

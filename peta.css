@@ -1,0 +1,114 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Pengaturan Dasar */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #5a6b5a; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #f0eeee;
+    margin: 20px 0;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* --- BINGKAI PERSEGI PANJANG (HORIZONTAL) --- */
+#map-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 55vh; 
+    border: 5px solid #a7b309;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative; 
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none; /* Penting: agar tombol bisa diklik */
+}
+
+/* Layer Checkpoint */
+#island-checkpoints {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; 
+}
+
+/* Styling Checkpoint (Pointer) */
+.checkpoint {
+    position: absolute;
+    display: block;
+    width: 85px; 
+    height: 30px; 
+    background-color: #e30b15; 
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px; 
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.checkpoint:hover {
+    background-color: #cf2e2e;
+    transform: scale(1.1); 
+    z-index: 11;
+}
+
+/* --- PENEMPATAN POSISI POINTER YANG AKURAT --- */
+
+/* Sumatra */
+.sumatra {
+    top: 45%;
+    left: 10%;
+}
+
+/* Kalimantan */
+.kalimantan {
+    top: 38%;
+    left: 36%;
+}
+
+/* Sulawesi */
+.sulawesi {
+    top: 55%;
+    left: 60%;
+}
+
+/* Jawa */
+.jawa {
+    top: 65%;
+    left: 26%;
+}
+
+/* Bali & NT */
+.bali-nt {
+    top: 75%;
+    left: 55%;
+}
+
+/* Papua */
+.papua {
+    top: 55%;
+    left: 88%;
+}
